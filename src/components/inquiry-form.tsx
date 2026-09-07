@@ -3,8 +3,9 @@
 import { useMemo, useState } from "react";
 import { site } from "@/content/site";
 import { useSearchString } from "@/lib/client-hooks";
+import { BookingChannels } from "./booking-channels";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "error" | "coming-soon";
 
 const BUDGETS = [
   "Under ₦300,000",
@@ -18,7 +19,7 @@ const BUDGETS = [
 const fieldClass =
   "w-full border-b border-ink-line bg-transparent py-3 text-[1rem] text-bone outline-none transition-colors placeholder:text-bone-faint focus:border-ember";
 
-export function InquiryForm() {
+export function InquiryForm({ enabled }: { enabled: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [message, setMessage] = useState("");
@@ -36,6 +37,15 @@ export function InquiryForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    /* Online booking isn't switched on yet: show the direct channels
+       instead of posting, so nothing can error. Flip
+       site.bookingFormEnabled once the Resend keys are set. */
+    if (!enabled) {
+      setStatus("coming-soon");
+      return;
+    }
+
     setStatus("sending");
     setErrors({});
     setMessage("");
@@ -67,6 +77,30 @@ export function InquiryForm() {
       setStatus("error");
       setMessage(`Couldn't reach the server. Email me directly at ${site.contact.email}.`);
     }
+  }
+
+  if (status === "coming-soon") {
+    return (
+      <div className="border border-ember/40 bg-ink-raised p-8 md:p-12">
+        <p className="marker mb-6 text-ember">Online booking — coming soon</p>
+        <h2 className="display d2 mb-5 max-w-[18ch]">Almost there.</h2>
+        <p className="lede mb-9 max-w-[52ch]">
+          Sending straight from the site is being switched on shortly. Until then, send me the same
+          details on any of these — they all land with me personally, and{" "}
+          {site.contact.responseTime.toLowerCase()}
+        </p>
+
+        <BookingChannels />
+
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="link-draw mt-8 text-[0.95rem] text-bone-dim hover:text-bone"
+        >
+          ← Back to the form
+        </button>
+      </div>
+    );
   }
 
   if (status === "sent") {
@@ -124,7 +158,7 @@ export function InquiryForm() {
           name="phone"
           type="tel"
           autoComplete="tel"
-          placeholder="+44 …"
+          placeholder="0706 …"
           className={fieldClass}
         />
       </Field>
@@ -154,7 +188,7 @@ export function InquiryForm() {
       </Field>
 
       <Field label="Location" name="location" hint="City, venue, or country">
-        <input id="location" name="location" placeholder="Lagos, Nigeria" className={fieldClass} />
+        <input id="location" name="location" placeholder="Abuja, Nigeria" className={fieldClass} />
       </Field>
 
       <Field label="Budget range" name="budget" hint="Helps me shape the right package">

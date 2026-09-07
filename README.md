@@ -72,7 +72,7 @@ Put a ~10s silent clip at `public/hero.mp4` and a still at `public/hero.jpg`, th
 
 ## Booking inquiries
 
-**The form is currently OFF.** `/book` shows a "coming soon" panel listing WhatsApp, email, phone and Instagram DM instead. There is no form and no submission, so nothing can error while Resend is still being set up.
+**The form is currently OFF.** The full inquiry form renders as normal, but pressing **Send inquiry** swaps it for a "coming soon" panel listing WhatsApp, email, phone and Instagram DM, rather than submitting. Nothing is posted, so nothing can error while Resend is still being set up. A "Back to the form" link returns to it.
 
 ### Switching the form on
 
@@ -86,7 +86,7 @@ INQUIRY_TO=hello@ibkhorbs.com
 INQUIRY_FROM="IBK Horbs <hello@ibkhorbs.com>"
 ```
 
-4. In `src/content/site.ts`, set `bookingFormEnabled: true`.
+4. In `src/content/site.ts`, set `bookingFormEnabled: true` — the same form then submits for real.
 5. On Vercel, add the same three variables under **Settings → Environment Variables**, then redeploy.
 
 `INQUIRY_FROM` must be on a domain verified in Resend. Before verifying, `onboarding@resend.dev` works for testing but only delivers to your own signup address.
