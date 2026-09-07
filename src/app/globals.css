@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   IBK HORBS — design tokens
+   Cinematic: near-black canvas, warm ember accent, bone type.
+   Edit colours here and the whole site follows.
+------------------------------------------------------------------ */
+
+:root {
+  --ink: #08080a; /* page canvas */
+  --ink-raised: #101015; /* panels, cards */
+  --ink-line: #232329; /* hairline rules */
+  --bone: #f3efe9; /* primary text */
+  --bone-dim: #a6a099; /* secondary text */
+  --bone-faint: #6d6862; /* tertiary / meta */
+  --ember: #ff4d19; /* hot accent */
+  --ember-deep: #c2340f;
+  --gold: #e3b778; /* warm secondary */
+
+  --shell: 1.5rem; /* horizontal page gutter */
+  --measure: 62ch;
+  color-scheme: dark;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --shell: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --shell: 4rem;
+  }
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-raised: var(--ink-raised);
+  --color-ink-line: var(--ink-line);
+  --color-bone: var(--bone);
+  --color-bone-dim: var(--bone-dim);
+  --color-bone-faint: var(--bone-faint);
+  --color-ember: var(--ember);
+  --color-ember-deep: var(--ember-deep);
+  --color-gold: var(--gold);
+
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+* {
+  min-width: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--ember);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* --- Layout shell -------------------------------------------------- */
+
+.shell {
+  padding-inline: var(--shell);
+  margin-inline: auto;
+  /* Explicit width matters: as a flex item, `margin-inline: auto` would
+     otherwise override `align-self: stretch` and shrink-wrap the block. */
+  width: 100%;
+  max-width: 100rem;
+}
+
+/* --- Type ---------------------------------------------------------- */
+
+.display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* Fluid display sizes — deliberately oversized, editorial. */
+.d1 {
+  font-size: clamp(3.25rem, 13vw, 11rem);
+}
+.d2 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+}
+.d3 {
+  font-size: clamp(1.85rem, 4.4vw, 3.25rem);
+}
+
+.marker {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--bone-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.lede {
+  font-size: clamp(1.05rem, 1.7vw, 1.375rem);
+  line-height: 1.55;
+  color: var(--bone-dim);
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+/* --- Film grain ---------------------------------------------------- */
+
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 700ms steps(1) infinite;
+}
+
+@keyframes grain-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3%, 2%);
+  }
+  50% {
+    transform: translate(2%, -3%);
+  }
+  75% {
+    transform: translate(-2%, -2%);
+  }
+  100% {
+    transform: translate(3%, 1%);
+  }
+}
+
+/* --- Scroll reveal ------------------------------------------------- */
+
+/* Progressive enhancement: content is visible by default, so if JavaScript
+   fails, is disabled, or the IntersectionObserver never fires, the page
+   still reads. The hidden starting state is applied only once the inline
+   script in layout.tsx has set data-js on <html>. */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+[data-js] .reveal {
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-js] .reveal[data-shown="false"] {
+  opacity: 0;
+  transform: translateY(1.75rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-js] .reveal,
+  [data-js] .reveal[data-shown="false"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Link underline that draws in --------------------------------- */
+
+.link-draw {
+  background-image: linear-gradient(var(--ember), var(--ember));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-draw:hover,
+.link-draw:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* --- Marquee ------------------------------------------------------- */
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Utilities ----------------------------------------------------- */
+
+.rule {
+  border-top: 1px solid var(--ink-line);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
