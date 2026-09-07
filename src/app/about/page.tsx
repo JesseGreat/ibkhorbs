@@ -9,7 +9,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The person behind the camera — how IBK Horbs works, what the kit is, and why the films look the way they do.",
+    "The person behind the camera: how IBK Horbs works, what the kit is, and why the films look the way they do.",
   alternates: { canonical: "/about" },
 };
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
           ) : (
             <MediaFrame
               src={about.portrait}
-              alt={`${site.name} — portrait`}
+              alt={`${site.name} portrait`}
               seed="about-portrait"
               label="IBK Horbs"
               priority
@@ -57,7 +57,7 @@ export default function AboutPage() {
             <div className="relative aspect-[3/4] w-full max-w-sm overflow-hidden bg-ink-raised">
               <MediaFrame
                 src={about.portraitAlt}
-                alt={`${site.name} — portrait`}
+                alt={`${site.name} portrait`}
                 seed="about-portrait-alt"
                 label="IBK"
                 sizes="(max-width: 1024px) 100vw, 30vw"

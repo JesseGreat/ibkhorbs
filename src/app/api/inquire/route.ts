@@ -77,13 +77,13 @@ export async function POST(request: Request) {
   const rows: [string, string][] = [
     ["Name", data.name],
     ["Email", data.email],
-    ["Phone", data.phone || "—"],
+    ["Phone", data.phone || "Not given"],
     ["Service", data.service],
-    ["Package", data.packageName || "—"],
+    ["Package", data.packageName || "Not given"],
     ["Date", data.date || "Not set"],
-    ["Location", data.location || "—"],
-    ["Budget", data.budget || "—"],
-    ["Heard via", data.source || "—"],
+    ["Location", data.location || "Not given"],
+    ["Budget", data.budget || "Not given"],
+    ["Heard via", data.source || "Not given"],
   ];
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: web3Key,
-          subject: `New ${data.service} inquiry — ${data.name}${data.date ? ` (${data.date})` : ""}`,
+          subject: `New ${data.service} inquiry from ${data.name}${data.date ? ` (${data.date})` : ""}`,
           from_name: `${site.name} website`,
           replyto: data.email,
           ...Object.fromEntries(rows),
@@ -158,7 +158,7 @@ export async function POST(request: Request) {
       from,
       to,
       replyTo: data.email,
-      subject: `New ${data.service} inquiry — ${data.name}${data.date ? ` (${data.date})` : ""}`,
+      subject: `New ${data.service} inquiry from ${data.name}${data.date ? ` (${data.date})` : ""}`,
       html: `
         <div style="max-width:560px;margin:0 auto;font:14px system-ui;color:#101015">
           <p style="font:600 18px system-ui;margin:0 0 20px">New booking inquiry</p>
@@ -180,7 +180,7 @@ export async function POST(request: Request) {
         from,
         to: data.email,
         replyTo: to,
-        subject: `Got it — ${site.name}`,
+        subject: `Got it · ${site.name}`,
         html: `
           <div style="max-width:520px;margin:0 auto;font:15px/1.65 system-ui;color:#101015">
             <p style="font:600 20px system-ui;margin:0 0 20px">Thanks, ${escapeHtml(data.name)}.</p>
@@ -190,7 +190,7 @@ export async function POST(request: Request) {
             <p style="margin:0 0 16px">If it's urgent, reply straight to this email or call ${escapeHtml(
               site.contact.phone,
             )}.</p>
-            <p style="margin:28px 0 0;color:#6d6862;font-size:13px">${site.name} — ${site.tagline}</p>
+            <p style="margin:28px 0 0;color:#6d6862;font-size:13px">${site.name} · ${site.tagline}</p>
           </div>`,
       });
     } catch (err) {

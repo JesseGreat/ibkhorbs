@@ -15,7 +15,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "We have watched it more times than we can admit. He caught things we did not even know happened — my dad crying during the speeches, my sister fixing my dress in a doorway. It plays like a memory, not a video.",
+      "We have watched it more times than we can admit. He caught things we did not even know happened: my dad crying during the speeches, my sister fixing my dress in a doorway. It plays like a memory, not a video.",
     name: "Tolu & David",
     detail: "Three-day wedding, Lagos",
     category: "weddings",

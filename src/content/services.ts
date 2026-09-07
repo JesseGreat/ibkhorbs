@@ -31,7 +31,7 @@ export const services: Service[] = [
     index: "01",
     title: "Weddings",
     intro:
-      "One shooter, or a small team when the day needs it. I work quietly and close — no directing you into poses you'd never hold, no missing the moment because a light stand needed moving.",
+      "One shooter, or a small team when the day needs it. I work quietly and close. No directing you into poses you'd never hold, no missing the moment because a light stand needed moving.",
     process: [
       { step: "Say hello", detail: "Tell me the date, the place, and what the day looks like in your head." },
       { step: "Call", detail: "Twenty minutes on video to work out whether we fit. No pressure either way." },
@@ -90,7 +90,7 @@ export const services: Service[] = [
     process: [
       { step: "Brief", detail: "What you're selling, who to, and what 'working' looks like in numbers." },
       { step: "Treatment", detail: "A short deck: look, structure, shot list, deliverables." },
-      { step: "Shoot", detail: "Half or full day, with or without talent — I can help cast." },
+      { step: "Shoot", detail: "Half or full day, with or without talent. I can help cast." },
       { step: "Cut", detail: "Two rounds of revisions built into every package." },
       { step: "Deliver", detail: "Master file plus every aspect ratio your channels need." },
     ],
@@ -139,7 +139,7 @@ export const services: Service[] = [
     index: "03",
     title: "Travel",
     intro:
-      "Destination weddings, tourism boards, hotels and resorts. I travel light and move fast — one bag, no crew calls, footage that looks like the place rather than the brochure.",
+      "Destination weddings, tourism boards, hotels and resorts. I travel light and move fast: one bag, no crew calls, footage that looks like the place rather than the brochure.",
     process: [
       { step: "Scope", detail: "Dates, destination, what you need to come home with." },
       { step: "Logistics", detail: "I handle my own kit, insurance, visas and carnets." },
@@ -200,7 +200,7 @@ export const faqs = [
   },
   {
     q: "Can we choose the music?",
-    a: "Yes — every track is properly licensed, so your film won't get muted on Instagram.",
+    a: "Yes. Every track is properly licensed, so your film won't get muted on Instagram.",
   },
   {
     q: "What do you need to hold a date?",

@@ -82,11 +82,11 @@ export function InquiryForm({ enabled }: { enabled: boolean }) {
   if (status === "coming-soon") {
     return (
       <div className="border border-ember/40 bg-ink-raised p-8 md:p-12">
-        <p className="marker mb-6 text-ember">Online booking — coming soon</p>
+        <p className="marker mb-6 text-ember">Online booking, coming soon</p>
         <h2 className="display d2 mb-5 max-w-[18ch]">Almost there.</h2>
         <p className="lede mb-9 max-w-[52ch]">
           Sending straight from the site is being switched on shortly. Until then, send me the same
-          details on any of these — they all land with me personally, and{" "}
+          details on any of these. They all land with me personally, and{" "}
           {site.contact.responseTime.toLowerCase()}
         </p>
 

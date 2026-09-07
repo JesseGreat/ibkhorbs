@@ -22,7 +22,7 @@ export default function WorkPage() {
             work.
           </>
         }
-        lede="Weddings, commercials and travel. Filter it down, or scroll the lot — every piece opens full-size, and the films play in place."
+        lede="Weddings, commercials and travel. Filter it down, or scroll the lot. Every piece opens full-size, and the films play in place."
       />
       <div className="shell pb-10">
         <WorkGrid />

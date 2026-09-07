@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Get in touch with IBK Horbs — ${site.contact.email}. Based in ${site.contact.baseCity}, ${site.contact.travel.toLowerCase()}.`,
+  description: `Get in touch with IBK Horbs at ${site.contact.email}. Based in ${site.contact.baseCity}, ${site.contact.travel.toLowerCase()}.`,
   alternates: { canonical: "/contact" },
 };
 
@@ -45,7 +45,7 @@ export default function ContactPage() {
             <Link href="/book" className="link-draw text-bone">
               inquiry form
             </Link>{" "}
-            is faster — it asks for everything I need to check the date in one go.
+            is faster. It asks for everything I need to check the date in one go.
           </p>
         </Reveal>
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
           <p className="marker mb-6">Response time</p>
           <p className="display d3">Within 48 hours</p>
           <p className="mt-3 max-w-[40ch] text-[0.95rem] leading-relaxed text-bone-dim">
-            If you haven&apos;t heard back in two days, something has gone wrong with email — call
+            If you haven&apos;t heard back in two days, something has gone wrong with email, so call
             or send a DM and I&apos;ll pick it up.
           </p>
         </Reveal>

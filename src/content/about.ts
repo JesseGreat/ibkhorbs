@@ -5,10 +5,10 @@
 export const about = {
   headline: "I make things you'll still watch in ten years.",
   intro:
-    "IBK Horbs is a mobile and camera content creator working across weddings, brand films and travel. The kit changes depending on the room — sometimes a full cinema rig, sometimes just a phone in one hand — but the instinct doesn't: get close, stay quiet, and catch the thing that would otherwise have gone unrecorded.",
+    "IBK Horbs is a mobile and camera content creator working across weddings, brand films and travel. The kit changes depending on the room: sometimes a full cinema rig, sometimes just a phone in one hand. What never changes is the instinct. Get close, stay quiet, and catch the thing that would otherwise have gone unrecorded.",
   body: [
     "It started with a borrowed camera at a friend's wedding and no idea what I was doing. The footage was rough. It also made three people cry, and that was the end of any other career plan.",
-    "Since then: weddings across three continents, launch films for brands that had never shot video before, and a lot of hours on planes with a bag that's always slightly over the weight limit. The through-line is motion — I'd rather shoot a bad frame of something real than a perfect frame of something staged.",
+    "Since then: weddings across three continents, launch films for brands that had never shot video before, and a lot of hours on planes with a bag that's always slightly over the weight limit. The through-line is motion. I'd rather shoot a bad frame of something real than a perfect frame of something staged.",
     "I work alone on most jobs, which keeps the room small and the day light. For bigger productions I bring in a second shooter and a sound op I've worked with for years. Either way, you deal with me from the first email to the final delivery.",
   ],
   /** Drop a personal intro video in /public/about/ and reference it here. */

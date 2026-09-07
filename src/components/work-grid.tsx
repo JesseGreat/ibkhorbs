@@ -88,7 +88,7 @@ export function WorkGrid({ items = work }: { items?: WorkItem[] }) {
       </div>
 
       {matching.length === 0 ? (
-        <p className="lede py-20 text-center">Nothing here yet — new work lands most months.</p>
+        <p className="lede py-20 text-center">Nothing here yet. New work lands most months.</p>
       ) : null}
 
       {remaining > 0 ? (
@@ -141,7 +141,7 @@ function PosterCard({
     >
       <MediaFrame
         src={item.poster}
-        alt={`${item.title} — ${item.category}`}
+        alt={`${item.title}, ${item.category}`}
         seed={item.slug}
         priority={eager}
         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"

@@ -44,7 +44,7 @@ export function ReelCard({
       <div className={`relative overflow-hidden bg-ink-raised ${span.frame}`}>
         <iframe
           src={src}
-          title={`${item.title} — ${pillar?.title ?? item.category}`}
+          title={`${item.title}, ${pillar?.title ?? item.category}`}
           loading={eager ? "eager" : "lazy"}
           scrolling="no"
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"

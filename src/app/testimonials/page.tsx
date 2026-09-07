@@ -8,7 +8,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "What couples and brands say after working with IBK Horbs — wedding films, commercials and travel content.",
+    "What couples and brands say after working with IBK Horbs: wedding films, commercials and travel content.",
   alternates: { canonical: "/testimonials" },
 };
 

@@ -11,7 +11,7 @@ export function BookingChannels() {
       label: "WhatsApp",
       value: site.contact.phone,
       href: site.contact.whatsapp,
-      note: "Fastest — usually answered same day",
+      note: "Fastest, usually answered same day",
       external: true,
     },
     {

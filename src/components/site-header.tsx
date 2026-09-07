@@ -34,7 +34,7 @@ export function SiteHeader() {
       }`}
     >
       <div className="shell flex h-[4.5rem] items-center justify-between gap-6">
-        <Link href="/" aria-label={`${site.name} — home`} className="relative z-10 shrink-0">
+        <Link href="/" aria-label={`${site.name} home`} className="relative z-10 shrink-0">
           <Wordmark />
         </Link>
 

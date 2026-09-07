@@ -7,7 +7,7 @@ import { services, faqs } from "@/content/services";
 export const metadata: Metadata = {
   title: "Services & Packages",
   description:
-    "Wedding films, brand commercials and travel content — what's included, how the process runs, and what it costs.",
+    "Wedding films, brand commercials and travel content: what's included, how the process runs, and what it costs.",
   alternates: { canonical: "/services" },
 };
 
@@ -23,7 +23,7 @@ export default function ServicesPage() {
             get.
           </>
         }
-        lede="Three pillars, clear packages, no mystery line items. Everything below is a starting point — most bookings get shaped around the day itself."
+        lede="Three pillars, clear packages, no mystery line items. Everything below is a starting point. Most bookings get shaped around the day itself."
         aside={
           <nav className="flex flex-wrap gap-2" aria-label="Jump to service">
             {services.map((s) => (

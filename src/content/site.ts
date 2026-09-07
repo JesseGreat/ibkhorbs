@@ -22,7 +22,7 @@ export const site = {
     responseTime: "Every inquiry gets a reply within 48 hours.",
     /** Booking urgency line. Nigeria's wedding season is the dry season —
         November to January, with December the busiest by a distance. */
-    seasonNote: "Dry-season dates go first — December is usually gone a year ahead.",
+    seasonNote: "Dry-season dates go first. December is usually gone a year ahead.",
     /** WhatsApp is how most Nigerian clients would rather reach you. */
     whatsapp: "https://wa.me/2347061334931",
   },
@@ -60,7 +60,7 @@ export const site = {
       index: "01",
       title: "Weddings",
       blurb:
-        "The whole day, felt rather than filed. Vows, the walk out, the dancefloor at 1am — cut to something you will actually rewatch.",
+        "The whole day, felt rather than filed. Vows, the walk out, the dancefloor at 1am, cut to something you will actually rewatch.",
     },
     {
       slug: "commercials",
